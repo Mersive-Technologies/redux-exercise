@@ -5,7 +5,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 ## Your goal is to use redux in the app
 
 Most of the setup for redux is already in place, Provider, createStore, etc.
-You will be doing most of the work in `todoSlice.tsx` and the `Todo.tsx` component
+You will be doing most of the work in `todoSlice.tsx` and the `Todos.tsx` component
 ### `npm start`
 
 Runs the app in the development mode.\
