@@ -1,4 +1,5 @@
 import React from 'react'
+import styles from './Todos.module.css'
 
 type Props = {
   label: string
@@ -8,8 +9,13 @@ type Props = {
 
 const Todo = ({ label, complete, toggleChecked }: Props) => {
   return (
-    <div>
-      <input checked={complete} onChange={toggleChecked} type="checkbox"></input>
+    <div className={styles.todo}>
+      <input
+        className={styles.todoCheckbox}
+        checked={complete}
+        onChange={toggleChecked} 
+        type="checkbox"
+      ></input>
       {label}
     </div>
   )

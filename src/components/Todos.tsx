@@ -2,12 +2,15 @@ import React, { useState } from 'react'
 import Todo from './Todo'
 import {
   // something
-} from '../../store/todoSlice'
-import styles from './Counter.module.css'
+} from '../store/todoSlice'
+import styles from './Todos.module.css'
 import { TodoForm } from './TodoForm'
 
 export function Todos() {
-  const todos = [{ complete: false, label: 'example', id: 1 }]
+  const todos = [
+    { complete: false, label: 'Example', id: 1 },
+    { complete: true, label: 'Another Example', id: 2 },
+  ]
   const [formOpen, setFormOpen] = useState(false)
   
   const toggleChecked = () => {
@@ -21,7 +24,19 @@ export function Todos() {
 
   return (
     <div>
-      <h1>Todos</h1>
+      <h1 className={styles.value}>Todos</h1>
+      {
+        formOpen ?
+          <TodoForm
+            onSubmit={onTodoSubmit}
+          /> :
+          <button
+            className={styles.button}
+            onClick={() => {setFormOpen(true)}} 
+          >
+            Add Todo
+          </button> 
+      }
       {todos.map(todo => (
         <Todo
           key={todo.id}
@@ -30,15 +45,6 @@ export function Todos() {
           complete={todo.complete}
         />
       ))}
-      {
-        formOpen ?
-          <TodoForm
-            onSubmit={onTodoSubmit}
-          /> :
-          <button onClick={() => {
-            setFormOpen(true)
-          }} >Add Stuff</button> 
-      }
     </div>
   )
 }
