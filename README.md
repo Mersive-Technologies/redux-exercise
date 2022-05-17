@@ -2,9 +2,9 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) TS template.
 
-## Your goal is use redux in the app
+## Your goal is to use redux in the app
 
-Most of the setup for redux is already in place, Provider, createStore, etc
+Most of the setup for redux is already in place, Provider, createStore, etc.
 You will be doing most of the work in `todoSlice.tsx` and the `Todo.tsx` component
 ### `npm start`
 
