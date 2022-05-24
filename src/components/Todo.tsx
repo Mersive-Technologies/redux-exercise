@@ -4,16 +4,17 @@ import styles from './Todos.module.css'
 type Props = {
   label: string
   complete: boolean
-  toggleChecked: () => void
+  id: string
+  toggleChecked: (id: string) => void
 }
 
-const Todo = ({ label, complete, toggleChecked }: Props) => {
+const Todo = ({ label, complete, toggleChecked, id }: Props) => {
   return (
     <div className={styles.todo}>
       <input
         className={styles.todoCheckbox}
         checked={complete}
-        onChange={toggleChecked} 
+        onChange={() => toggleChecked(id)} 
         type="checkbox"
       ></input>
       {label}

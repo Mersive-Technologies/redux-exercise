@@ -1,24 +1,28 @@
 import React, { useState } from 'react'
+import { useSelector, useDispatch } from 'react-redux'
+import { RootState, store } from '../store/store'
 import Todo from './Todo'
 import {
-  // something
+  todoSlice
 } from '../store/todoSlice'
 import styles from './Todos.module.css'
 import { TodoForm } from './TodoForm'
 
 export function Todos() {
-  const todos = [
-    { complete: false, label: 'Example', id: 1 },
-    { complete: true, label: 'Another Example', id: 2 },
-  ]
+  const todos = useSelector((state: RootState) => state.todos).todos
+  // const todos = [
+  //   { complete: false, label: 'Example', id: 1 },
+  //   { complete: true, label: 'Another Example', id: 2 },
+  // ]
   const [formOpen, setFormOpen] = useState(false)
   
-  const toggleChecked = () => {
+  const toggleChecked = (id: string) => {
+    store.dispatch(todoSlice.actions.toggleTodo(id))
     console.log('Click')
   }
 
   const onTodoSubmit = (todo: string) => {
-    console.log(todo)
+    store.dispatch(todoSlice.actions.addTodo(todo))
     setFormOpen(false)
   }
 
@@ -43,6 +47,7 @@ export function Todos() {
           toggleChecked={toggleChecked}
           label={todo.label}
           complete={todo.complete}
+          id={todo.id}
         />
       ))}
     </div>
